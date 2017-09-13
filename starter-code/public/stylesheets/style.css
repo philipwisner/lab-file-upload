@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.photo-upload input {
+  display: inline;
+}
