@@ -58,12 +58,11 @@ router.get('/create', ensureLoggedIn('/login'), (req, res) => {
 
 router.post('/create', upload.single('file'), function(req, res){
   let post = new Post({
-
     content: req.body.content,
-    creatorId: req.userId,
     pic_path: `/uploads/${req.file.filename}`,
     pic_name: req.file.originalname
   });
+  
   post.save((err) => {
     res.redirect('/create');
   });
