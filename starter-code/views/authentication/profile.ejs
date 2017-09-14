@@ -1,12 +1,16 @@
-<h1>Hello <%= user.username %></h1>
+<h1>Hello, <%= user.username %>!</h1>
 
 <p><img src="<%= user.picture.pic_path %>" alt="<%= user.picture.pic_path %>"></p>
 
 <section class="photo-upload">
-  <h2>Upload your photo</h2>
+  <h3>Upload your photo</h3>
   <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Photo Name">
     <input type="file" name="photo">
     <input type="submit" value="Save">
   </form>
 </section>
+
+</section>
+  <a href="/create"> Feel like posting something?</a>
+<section>

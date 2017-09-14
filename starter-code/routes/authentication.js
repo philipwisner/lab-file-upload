@@ -4,6 +4,7 @@ const router     = express.Router();
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const multer  = require('multer');
 const User = require('../models/user');
+const Post = require('../models/posts');
 var upload = multer({ dest: './public/uploads/' });
 
 
@@ -50,6 +51,23 @@ router.post('/upload', upload.single('photo'), function(req, res){
       res.redirect('/profile');
   });
 });
+
+router.get('/create', ensureLoggedIn('/login'), (req, res) => {
+    res.render('authentication/create');
+});
+
+router.post('/create', upload.single('file'), function(req, res){
+  let post = new Post({
+
+    content: req.body.content,
+    creatorId: req.userId,
+    pic_path: `/uploads/${req.file.filename}`,
+    pic_name: req.file.originalname
+  });
+  post.save((err) => {
+    res.redirect('/create');
+  });
+})
 
 
 module.exports = router;

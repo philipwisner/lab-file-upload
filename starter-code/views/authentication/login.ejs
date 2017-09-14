@@ -12,10 +12,14 @@
           <label for="password">Password</label>
           <input type="password" name="password" class="form-control">
         </div>
-
         <button type="submit">Login</button><hr />
-        <p>Don't have an account? <a href="signup">Sign up here</a></p>
       </form>
+    </div>
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <div>
+      <p>Don't have an account? <a href="signup">Sign up here</a></p>
     </div>
   </div>
 </div>
