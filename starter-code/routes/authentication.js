@@ -29,7 +29,7 @@ router.post('/signup', ensureLoggedOut(), passport.authenticate('local-signup', 
 
 router.get('/profile', ensureLoggedIn('/login'), (req, res) => {
     res.render('authentication/profile', {
-        user : req.user
+        user : req.user,
     });
 });
 
@@ -46,11 +46,8 @@ router.post('/upload', upload.single('photo'), function(req, res){
       pic_name: req.file.originalname
     }
   }
-    User.findByIdAndUpdate(req.user._id, updates, (err, user) => {
+  User.findByIdAndUpdate(req.user._id, updates, (err, user) => {
       res.redirect('/profile');
-  });
-  User.save((err) => {
-      res.redirect('/');
   });
 });
 

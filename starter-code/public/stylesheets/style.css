@@ -11,3 +11,7 @@ a {
 .photo-upload input {
   display: inline;
 }
+
+img {
+  max-width: 300px;
+}

@@ -1,4 +1,6 @@
-<h1>PROFILE PAGE</h1>
+<h1>Hello <%= user.username %></h1>
+
+<p><img src="<%= user.picture.pic_path %>" alt="<%= user.picture.pic_path %>"></p>
 
 <section class="photo-upload">
   <h2>Upload your photo</h2>
@@ -8,5 +10,3 @@
     <input type="submit" value="Save">
   </form>
 </section>
-
-<a href="/logout">Logout</a>
